@@ -10,4 +10,5 @@ Written in Python, packaged using PyInstaller.
 
 - Download and unzip the latest release.
 - Place `StartListViewer.exe` in the same directory as `quantum.slx`.
+- Double-click on `StartListViewer.exe` to run the program.
 - Follow the in-program prompts. Enter the first and last events you would like to view.
