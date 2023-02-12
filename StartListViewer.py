@@ -169,9 +169,11 @@ def format_(l):
 
     first = getFirst(l) -1
     last = getLast(l)
-    print("".ljust(100, "="))
-    print("".ljust(100, "+"))
-    print("".ljust(100, "="))
+    print("\n")
+    print("".ljust(70, "="))
+    print("".ljust(70, "+"))
+    print("".ljust(70, "="))
+    print("\n")
     for i in range(first, last):
 
         if "relay" not in l[i][0][2].lower():
@@ -211,8 +213,15 @@ def format_(l):
             names = ""
             swimmers = []
             for heatNumber in range(1, len(l[i])):
+                event = l[i][0][0]
+                if l[i][0][1] == "P":
+                    t = "Prelim"
+                elif l[i][0][1] == "T":
+                    t = "Timed Final"
+                elif l[i][0][1] == "F":
+                    t = "Final"
                 evtType = t.ljust(12)
-                evtName = l[i][0][2].ljust(28)
+                evtName = l[i][0][2].ljust(29)
                 heatNumInt = l[i][heatNumber][0]
                 heatNumStr = heatNumInt.rjust(3, "0")
                 spacer = "".ljust(70, "-")
@@ -226,7 +235,7 @@ def format_(l):
                             for swimmer in range (0, 4):
                                 swimmerName = l[i][heatNumber][laneNumber][1][swimmer][1]
                                 shortClub = l[i][heatNumber][laneNumber][1][swimmer][2].ljust(6)
-                                addRow = "\n|   | " + str(swimmer) + ") " + swimmerName + "   - " + shortClub + " |"
+                                addRow = "\n|   | " + str(swimmer +1) + ") " + swimmerName + "   - " + shortClub + " |"
                                 swimmers.append(addRow)
                             names = "".join(swimmers)
                     laneText = "| " + str(poolLane) + " | " + club + " | " + relay + " |" + names
@@ -236,12 +245,14 @@ def format_(l):
                     swimmerName = "".ljust(32)
                     shortClub = "".ljust(8)
                     names = ""
-                    swimmers = []
-                        
-                        
-            
+                    swimmers = []            
         
 lines = getFile()
 events = splitIntoEvents(lines)
 format_(events)
+print("\n")
+print("".ljust(70, "="))
+print("".ljust(70, "+"))
+print("".ljust(70, "="))
+print("\n")
 input("Press \"Enter\" to close window. \n")
