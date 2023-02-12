@@ -2,7 +2,7 @@
 
 This is a portable Start List Viewer for Quantum-AQ. 
 
-Reads `quantum.slx` created by Hy-Tek Swim MM for Quantum.
+Reads `quantum.slx` Start List file created by Hy-Tek Swim Meet Manager for Quantum-AQ.
 
 Written in Python, packaged using PyInstaller.
 
